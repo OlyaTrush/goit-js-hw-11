@@ -38,7 +38,7 @@ const createGallery = async () => {
       } 
       initialData.hits = hits;
       markup(hits);
-      if (totalHits < endHits) {
+      if (totalHits <= endHits) {
         Notify.info('We are sorry, but you have reached the end of search results.');
       }
       observer.observe(document.querySelector('.gallery-item:last-child'));
