@@ -30,13 +30,17 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 const createGallery = async () => {
   await fetchImg(fetchImgOptions).then(({ data }) => {
-    const { total, hits } = data;
+    const { total, hits, totalHits } = data;
+    const endHits = fetchImgOptions.per_page * fetchImgOptions.page;
     if (total || hits.length) {
       if (fetchImgOptions.page === 1) {
         Notify.success(`Hooray! We found ${total} images.`);
-      }
+      } 
       initialData.hits = hits;
       markup(hits);
+      if (totalHits < endHits) {
+        Notify.info('We are sorry, but you have reached the end of search results.');
+      }
       observer.observe(document.querySelector('.gallery-item:last-child'));
     } else {
       Notify.failure('Sorry, there are no images matching your search query. Please try again.');
