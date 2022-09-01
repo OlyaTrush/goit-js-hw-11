@@ -28,8 +28,8 @@ const observer = new IntersectionObserver((entries, observer) => {
   createGallery();
 });
 
-const createGallery = async () => {
-  await fetchImg(fetchImgOptions).then(({ data }) => {
+const createGallery = () => {
+  fetchImg(fetchImgOptions).then(({ data }) => {
     const { total, hits, totalHits } = data;
     const endHits = fetchImgOptions.per_page * fetchImgOptions.page;
     if (total || hits.length) {
