@@ -57,13 +57,10 @@ const onSearch = event => {
 
   const searchValue = event.currentTarget.elements.searchQuery.value.trim();
 
-  if (searchValue === '') {
-    Notify.failure('There is nothing to search!');
-    return;
-  } else if (searchValue === fetchImgOptions.q) {
-    Notify.info('Search results are already displayed.');
-    return;
-  }
+  if (searchValue === '') return Notify.failure('There is nothing to search!');
+
+  if (searchValue === fetchImgOptions.q)
+    return Notify.info('Search results are already displayed.');
 
   refs.gallery.innerHTML = '';
   fetchImgOptions.q = searchValue;
