@@ -1,21 +1,22 @@
 .gallery {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  padding-top: 70px;
+  margin: 0 auto 30px;
+    padding-top: 90px;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    grid-auto-rows: 15rem;
+    
 }
 .gallery-item {
-  display: flex;
-  flex-basis: calc(100% / 5 - 20px);
+  display: block;
   margin: 10px auto;
+  width: 20rem;
 }
 
 .photo-card {
   border-width: 1px;
   border-color: grey;
-  width: 100%;
+  max-width: 100%;
 }
 
 .photo-card:hover {
@@ -38,6 +39,7 @@
   color: #fff;
   background-color: rgb(135, 204, 101);
   border-radius: 0 0 5px 5px;
+  justify-content: center;
 }
 
 .info-item {

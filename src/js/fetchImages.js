@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY = '29507685-ce40eb09955da3524e05d8b65';
@@ -16,6 +17,6 @@ export const fetchImg = async params => {
   try {
     return await axios.get(BASE_URL, { params: { ...params, key: API_KEY } });
   } catch (error) {
-    console.error(error);
+    Notiflix.feilure(`${error.message}`);
   }
 };
